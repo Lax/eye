@@ -12,15 +12,18 @@ class Eye
 			data = {}
 			cluster.css("HOST").each do |host|
 				ip = host["IP"]
-				data[ip] = Hash.new(0)
+				data[ip] = Hash.new
 				host.css("METRIC").each do |metric|
 					case metric["NAME"]
 					when 'sq_request_hit_ratio' then
-						data[ip]['sq_request_hit_ratio'] = metric["VAL"]
+						data[ip]['squid'] ||= Hash.new(0)
+						data[ip]['squid']['sq_request_hit_ratio'] = metric["VAL"]
 					when 'sq_request_mem_hit_ratio' then
-						data[ip]['sq_request_mem_hit_ratio'] = metric["VAL"]
+						data[ip]['squid'] ||= Hash.new(0)
+						data[ip]['squid']['sq_request_mem_hit_ratio'] = metric["VAL"]
 					when 'sq_request_disk_hit_ratio' then
-						data[ip]['sq_request_disk_hit_ratio'] = metric["VAL"]
+						data[ip]['squid'] ||= Hash.new(0)
+						data[ip]['squid']['sq_request_disk_hit_ratio'] = metric["VAL"]
 					else
 					end
 				end

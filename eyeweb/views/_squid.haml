@@ -1,0 +1,20 @@
+-# coding: UTF-8
+
+-if squid_data and squid_data['sq_request_hit_ratio']
+  .span2
+    = squid_data['sq_request_hit_ratio']
+    .donut.donut-big
+      .donut-bow
+      .donut-arrow{:'data-percentage' => squid_data['sq_request_hit_ratio']}
+    
+  .span1
+    = squid_data['sq_request_mem_hit_ratio']
+    .donut
+      .donut-bow
+      .donut-arrow{:'data-percentage' => squid_data['sq_request_mem_hit_ratio']}
+    
+  .span1
+    = squid_data['sq_request_disk_hit_ratio']
+    .donut
+      .donut-bow
+      .donut-arrow{:'data-percentage' => squid_data['sq_request_disk_hit_ratio']}
