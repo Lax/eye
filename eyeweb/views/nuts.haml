@@ -1,0 +1,40 @@
+-# coding: UTF-8
+
+.container
+  .row-fluid
+    %h1 squid request hit ratio
+
+  %table.table.table-striped.table-hover
+    %tr
+      %td IP
+      %td 命中率
+      %td 内存命中率
+      %td 磁盘命中率
+    -@data.each do |k,v|
+      -if v['sq_request_hit_ratio'] and v['sq_request_hit_ratio'] != 0
+        %tr
+          %td
+            =k
+          %td
+            = v['sq_request_hit_ratio']
+            .donut.donut-big
+              .donut-bow
+              .donut-arrow{:'data-percentage' => v['sq_request_hit_ratio']}
+          %td
+            = v['sq_request_mem_hit_ratio']
+            .donut.donut-big
+              .donut-bow
+              .donut-arrow{:'data-percentage' => v['sq_request_mem_hit_ratio']}
+          %td
+            = v['sq_request_disk_hit_ratio']
+            .donut.donut-big
+              .donut-bow
+              .donut-arrow{:'data-percentage' => v['sq_request_disk_hit_ratio']}
+
+
+%script{:src => "http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"}
+%script{:src => "http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.js"}
+%script{:src => "/js/donuts.js"}
+:javascript
+  window.prettyPrint && prettyPrint();
+

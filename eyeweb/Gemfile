@@ -1,0 +1,18 @@
+source "http://ruby.taobao.org"
+
+gem "haml"
+gem "sass"
+gem 'time-lord', :git => 'git://github.com/Lax/time-lord-chinese.git', :require => 'time-lord'
+
+gem 'thin'
+
+gem 'sinatra', :require => "sinatra/base"
+gem 'async_sinatra', :git => 'git://github.com/raggi/async_sinatra.git', :require => "sinatra/async"
+
+gem 'data_mapper', :require => 'data_mapper'
+
+gem 'dm-sqlite-adapter', :group => :development
+gem 'dm-mysql-adapter', :group => :production
+gem 'dm-postgres-adapter', :group => :production
+
+gem 'nokogiri', :require => 'nokogiri'

@@ -1,0 +1,19 @@
+-# coding: UTF-8
+!!!
+%html(xml:lang='zh-cn' lang='zh-cn' xmlns='http://www.w3.org/1999/xhtml')
+  %head
+    %meta(content='text/html;charset=UTF-8' http-equiv='content-type')
+    %link{:rel => "stylesheet", :href => "http://twitter.github.com/bootstrap/assets/css/bootstrap.css"}
+    %link{:rel => "stylesheet", :href => "http://twitter.github.com/bootstrap/assets/css/docs.css"}
+    %link{:rel => "stylesheet", :href => "http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.css"}
+    %link{:href => "/css/eye.css", :rel =>"stylesheet", :type => "text/css", :media => "screen" }
+
+    %link{:href => "/css/donuts.css", :rel =>"stylesheet", :type => "text/css", :media => "screen" }
+    %script{:src => "/js/d3.v3.min.js"}
+
+  %body
+    = haml :'_header'
+
+    = yield
+
+    = haml :'_footer'
